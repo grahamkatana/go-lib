@@ -51,13 +51,13 @@ func ConnectDatabase() {
 		fmt.Println("mysql.")
 
 		// fmt.Printf("godotenv : %s = %s \n", "STRONGEST_AVENGER", driver)
-		dsn := "root:@tcp(127.0.0.1:3306)/gorm?charset=utf8mb4&parseTime=True&loc=Local"
+		dsn := "root:@tcp(127.0.0.1:3306)/bookLibrary?charset=utf8mb4&parseTime=True&loc=Local"
 		database, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 		if err != nil {
 			panic("Failed to connect to database!")
 		}
 
-		database.AutoMigrate(&models.Book{}, &models.User{}, &models.Rental{})
+		database.AutoMigrate(&models.Book{}, &models.User{}, &models.Rental{}, &models.ServiceFee{})
 		DB = database
 
 	case "pgsql":

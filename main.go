@@ -16,6 +16,9 @@ func main() {
 	routes.UserRoutes(router)
 	router.Use(middleware.Authentication())
 	routes.BookRoutes(router)
+	routes.ServiceFeeRoutes(router)
+	routes.BookRentalRoutes(router)
+
 	//routes.UserRoutes(router)
 	//router.POST("/register", controllers.Register)
 	router.Run("localhost:8000")

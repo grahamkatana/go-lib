@@ -20,3 +20,16 @@ func BookRoutes(route *gin.Engine) {
 	route.GET("/books/search/:key", controllers.SearchBook)
 
 }
+
+func ServiceFeeRoutes(route *gin.Engine) {
+	route.GET("/service-fees", controllers.GetServiceFees)
+	route.POST("/service-fees", controllers.CreateServiceFee)
+	route.GET("/service-fees/:id", controllers.FindServiceFee)
+	route.PATCH("/service-fees/:id", controllers.UpdateServiceFee)
+	route.DELETE("/service-fees/:id", controllers.DeleteServiceFee)
+}
+
+func BookRentalRoutes(route *gin.Engine) {
+	route.POST("/rentals", controllers.CreateBookRental)
+	route.PATCH("/rentals/:id", controllers.UpdateBookRental)
+}
